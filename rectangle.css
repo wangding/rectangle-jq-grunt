@@ -1,16 +1,16 @@
 div {
-  width: 370px;
-  margin: 50px auto;
   font-size: 1.1em;
+  margin: 50px auto;
+  width: 370px;
 }
 
 input, label {
-  margin: 5px 0;
   font-size: 1em;
+  margin: 5px 0;
   padding-left: 5px;
 }
 
 #calculate {
-  width: 70px;
   margin-left: 63px;
+  width: 70px;
 }
