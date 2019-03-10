@@ -18,9 +18,12 @@
   "homepage": "https://github.com/wangding/rectangle#readme",
   "devDependencies": {
     "grunt": ">=0.4.5",
-    "grunt-mocha": "^0.4.12",
     "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-htmlmin": "^3.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
     "grunt-eslint": "^21.0.0",
-    "grunt-htmlhint": "^0.9.13"
+    "grunt-htmlhint": "^0.9.13",
+    "grunt-mocha": "^0.4.12"
   }
 }
