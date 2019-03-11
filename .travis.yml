@@ -3,7 +3,7 @@ node_js:
   - "6"
 
 after_script:
-  - grunt minify
+  - grunt release
   - cd ./dist
   - git init
   - git config user.name "${USER_NAME}"

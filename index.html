@@ -2,27 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
   <title>矩形计算器</title>
   <link rel="stylesheet" href="rectangle.css">
+  <link rel="icon" href="https://i.wangding.in/favicon.ico" sizes="48x48" type="image/png">
 </head>
 <body>
 <div>
+  <label>宽度：</label>
+  <input id="width" type="text" autofocus>
+  <span>*</span>
+  <br>
   <label>高度：</label>
   <input id="height" type="text">
-  <br>
-  <label>宽度：</label>
-  <input id="width" type="text">
+  <span>*</span>
   <br>
   <input id="calculate" type="button" value="计算">
   <br>
   <label>周长：</label>
-  <input id="perimeter" type="text">
+  <input id="perimeter" type="text" disabled>
   <br>
   <label for="">面积：</label>
-  <input id="area" type="text">
+  <input id="area" type="text" disabled>
 </div>
  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+ <!-- build:js bundle.min.js -->
  <script src="calc.js"></script>
  <script src="rectangle.js"></script>
+ <!-- endbuild -->
 </body>
 </html>
