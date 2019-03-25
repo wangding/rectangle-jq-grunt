@@ -1,9 +1,3 @@
-div {
-  font-size: 1.1em;
-  margin: 50px auto;
-  width: 370px;
-}
-
 input, label {
   font-size: 1em;
   margin: 5px 0;
@@ -14,7 +8,20 @@ span {
   color: red;
 }
 
-#calculate {
-  margin-left: 63px;
-  width: 70px;
+.main {
+  font-size: 1.1em;
+  margin: 50px auto;
+  width: 370px;
 }
+
+  #calculate {
+    margin-left: 63px;
+    width: 70px;
+  }
+
+  #width-validate,
+  #height-validate {
+    color: red;
+    font-size: 0.8em;
+    margin-left: 63px;
+  }
