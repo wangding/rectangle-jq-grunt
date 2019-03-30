@@ -1,4 +1,4 @@
-/* global Rectangle, validate: true */
+/* global Rectangle, validate, isLegalKey: true */
 $(function() {
   var $width = $('#width'),
       $height = $('#height'),
@@ -20,6 +20,12 @@ $(function() {
     }
   });
 
+  $width.keypress(function(e) {
+    if(!isLegalKey(e.key, e.target.value, e.target.selectionStart)) {
+      e.preventDefault();
+    }
+  });
+
   $height.focusout(function() {
     var result = validate($height.val());
     isPassValidate = result.isOK;
@@ -28,6 +34,12 @@ $(function() {
       $height.select();
     } else {
       $heightValidate.html('');
+    }
+  });
+
+  $height.keypress(function(e) {
+    if(!isLegalKey(e.key, e.target.value, e.target.selectionStart)) {
+      e.preventDefault();
     }
   });
 
