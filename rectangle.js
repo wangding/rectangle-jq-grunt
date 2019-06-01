@@ -1,4 +1,4 @@
-/* global Rectangle, validate, isLegalKey, $forkMeGH: true */
+/* global Rectangle, validate, isLegalKey, $forkMeGH, $bszPageFooter: true */
 $(function() {
   var $width = $('#width'),
       $height = $('#height'),
@@ -10,6 +10,7 @@ $(function() {
       isPassValidate = false;
 
   $forkMeGH.show('https://github.com/wangding/rectangle');
+  $bszPageFooter.show('body');
 
   $width.focusout(function() {
     var result = validate($width.val());
