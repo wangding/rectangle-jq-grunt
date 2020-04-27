@@ -91,3 +91,7 @@ function isLegalKey(key, content, pos) {
 
   return true;
 }
+
+function add(x, y) {
+  return x + y;
+}
