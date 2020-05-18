@@ -150,6 +150,10 @@ describe('isLegalKey() 测试', function() {
     it('不允许出现在小数中', function() {
       expect(isLegalKey('.', '3.141', 5)).not.to.be.ok;
     });
+
+    it('不允许出现在科学计数法的指数中', function() {
+      expect(isLegalKey('.', '3e141', 3)).not.to.be.ok;
+    });
   });
 
   describe('合法字符：e', function() {
@@ -196,6 +200,10 @@ describe('isLegalKey() 测试', function() {
     it('不允许出现在 E 科学计数法数字的前面', function() {
       expect(isLegalKey('e', '3.14E2', 0)).not.to.be.ok;
     });
+
+    it('不允许出现在小数点前面', function() {
+      expect(isLegalKey('e', '123.456', 2)).not.to.be.ok;
+    });
   });
 
   describe('合法字符：E', function() {
@@ -241,6 +249,52 @@ describe('isLegalKey() 测试', function() {
 
     it('不允许出现在 e 科学计数法数字的前面', function() {
       expect(isLegalKey('E', '3.14e2', 0)).not.to.be.ok;
+    });
+
+    it('不允许出现在小数点前面', function() {
+      expect(isLegalKey('E', '123.456', 2)).not.to.be.ok;
+    });
+  });
+
+  describe('合法字符：-', function() {
+    it('不允许出现在非科学计数法的合法数字末尾', function() {
+      expect(isLegalKey('-', '3.141', 5)).not.to.be.ok;
+    });
+
+    it('不允许出现在非科学计数法的合法数字中间', function() {
+      expect(isLegalKey('-', '3.141', 3)).not.to.be.ok;
+    });
+
+    it('不允许出现在非科学计数法的合法数字前', function() {
+      expect(isLegalKey('-', '3.141', 0)).not.to.be.ok;
+    });
+
+    it('不允许出现在空文本中', function() {
+      expect(isLegalKey('-', '', 0)).not.to.be.ok;
+    });
+
+    it('不允许出现在负号后', function() {
+      expect(isLegalKey('-', '-', 1)).not.to.be.ok;
+    });
+
+    it('不允许出现在科学计数法数字的中间', function() {
+      expect(isLegalKey('-', '3.14E2', 4)).not.to.be.ok;
+    });
+
+    it('允许出现在 E 后面', function() {
+      expect(isLegalKey('-', '3.14E2', 5)).to.be.ok;
+    });
+
+    it('允许出现在 e 后面', function() {
+      expect(isLegalKey('-', '3.14e2', 5)).to.be.ok;
+    });
+
+    it('不允许重复出现', function() {
+      expect(isLegalKey('-', '3.14e-2', 3)).not.to.be.ok;
+    });
+
+    it('不允许出现在小数点后面', function() {
+      expect(isLegalKey('-', '123.456', 4)).not.to.be.ok;
     });
   });
 

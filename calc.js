@@ -65,28 +65,48 @@ function validate(data) {
  * @returns {bool} 按键是否合法，true 合法，false 非法
  */
 function isLegalKey(key, content, pos) {
-  if(/[abcdf-zABCDF-Z`~!@#$%^&*()\-=_+[\]{}|;:'",<>/?\\]/.test(key)) {
+  // 过滤非法字符
+  if(/[abcdf-zABCDF-Z`~!@#$%^&*()=_+[\]{}|;:'",<>/?\\]/.test(key)) {
     return false;
   }
 
+  // 合法字符：. 小数点
   if(key === '.') {
-    if(pos === 0 || content.indexOf('.') !== -1) return false;
+    // 规则：小数点不能出现在数字的首位
+    if(pos === 0) return false;
 
-    if(pos === 1 && content.substring(0,1) === '-') return false;
+    // 规则：小数点不能出现在小数中
+    if(content.indexOf('.') !== -1) return false;
+
+    // 规则：小数点不能出现在负号以及 e 或 E 后面
+    if(pos > 0 && /[-eE]/.test(content.slice(0, pos))) return false;
   }
 
-  if(key === 'e') {
-    if(pos === 0 || content.indexOf('e') !== -1 
-        || content.indexOf('E') !== -1) return false;
+  // 合法字符：e 和 E 科学计数法指数符号
+  if(key === 'e' || key === 'E') {
+    // 规则：e 和 E 不能出现在数字的首位
+    if(pos === 0) return false;
 
-    if(pos === 1 && content.substring(0,1) === '-') return false;
+    // 规则：e 和 E 不能出现在科学计数法的数字中
+    if(content.indexOf('e') !== -1 || content.indexOf('E') !== -1) return false;
+
+    // 规则：e 和 E 不能出现在负号和小数点后面
+    if(pos > 0 && /[-.]/.test(content.slice(pos - 1, pos))) return false;
+
+    // 规则：e 和 E 不能出现在小数点前面
+    if(content.slice(pos, content.length).indexOf('.') !== -1) return false;
   }
 
-  if(key === 'E') {
-    if(pos === 0 || content.indexOf('e') !== -1 
-        || content.indexOf('E') !== -1) return false;
+  // 合法字符：- 负号
+  if(key === '-') {
+    // 规则：负号不能出现在数字的首位
+    if(pos === 0) return false;
 
-    if(pos === 1 && content.substring(0,1) === '-') return false;
+    // 规则：负号不能出现在数字和小数点后面
+    if(pos > 0 && /[0-9.]/.test(content.slice(pos -1, pos))) return false;
+
+    // 规则：负号不能重复出现
+    if(pos > 0 && content.indexOf('-') !== -1) return false;
   }
 
   return true;
