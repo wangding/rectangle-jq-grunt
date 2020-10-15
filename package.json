@@ -22,7 +22,7 @@
   "homepage": "https://github.com/wangding/rectangle#readme",
   "devDependencies": {
     "grunt": ">=0.4.5",
-    "electron": "~1.8.4",
+    "electron": "~10.1.3",
     "electron-packager": "^12.2.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
