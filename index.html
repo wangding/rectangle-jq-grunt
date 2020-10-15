@@ -27,12 +27,19 @@
   <label for="">面积：</label>
   <input id="area" type="text" disabled>
 </div>
- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
- <script src="//i.wangding.in/js/fork-me-github.js"></script>
- <script src="//i.wangding.in/js/bsz-page-footer.js"></script>
- <!-- build:js bundle.min.js -->
- <script src="calc.js"></script>
- <script src="rectangle.js"></script>
- <!-- endbuild -->
+<script>
+if(typeof module === 'object') {
+  window.module = module;
+  module = undefined;
+}
+</script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/wangding/i@gh-pages/js/fork-me-github.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/wangding/i@gh-pages/js/bsz-page-footer.js"></script>
+<script>if(window.module) module = window.module;</script>
+<!-- build:js bundle.min.js -->
+<script src="calc.js"></script>
+<script src="rectangle.js"></script>
+<!-- endbuild -->
 </body>
 </html>

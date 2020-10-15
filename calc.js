@@ -1,6 +1,6 @@
-/* exported Rectangle, validate, roundFractional, isLegalKey */
+/* exported Rectangle, validate, isLegalKey */
 function Rectangle(width, height) {
-  var w = Number(width),
+  let w = Number(width),
       h = Number(height);
 
   this.area = function() {
@@ -32,7 +32,7 @@ function Rectangle(width, height) {
  *          reason 验证不通过的理由
  */
 function validate(data) {
-  var result = {
+  let result = {
     isOK: false,
     reason: ''
   };
